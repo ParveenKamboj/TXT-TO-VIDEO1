@@ -439,12 +439,12 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {res}.mkv\n\n📚 Batch Name: {b_name}'
-                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} .pdf\n\n📚 Batch Name: {b_name}'
-                cyt = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
-                ccp = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
-                czip = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
-                cczip = f'**💾 ZIP_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} .pdf\n\n📚 Batch Name: {b_name}'
+                cc = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} {res}.mkv\n\n</blockquote></b>📚 Batch Name: </b>{b_name}</blockquote>'
+                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .pdf\n\n📚 Batch Name: {b_name}'
+                cyt = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
+                ccp = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
+                czip = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
+                cczip = f'**💾 ZIP_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .pdf\n\n📚 Batch Name: {b_name}'
                     
                 
                 if "drive" in url:
