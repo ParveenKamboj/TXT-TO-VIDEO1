@@ -1,9 +1,3 @@
-import re
-
-# Escape function for MarkdownV2
-def escape_md(text):
-    return re.sub(r'([_*\[\]()~`>#+=|{}.!\\-])', r'\\\1', text)
-
 import os
 import re
 import sys
@@ -445,12 +439,12 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} {res}.mkv\n\n`📚 Batch Name : {b_name}`'
-                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .pdf\n\n`📚 Batch Name : {b_name}`'
-                cyt = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n`📚 Batch Name : {b_name}`\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
-                ccp = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n`📚 Batch Name : {b_name}`\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
-                czip = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n`📚 Batch Name : {b_name}`\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
-                cczip = f'**💾 ZIP_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .pdf\n\n`📚 Batch Name : {b_name}`'
+                cc = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} {res}.mkv\n\n📚 Batch Name: {b_name}'
+                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .pdf\n\n📚 Batch Name: {b_name}'
+                cyt = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
+                ccp = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
+                czip = f'**🌍 VID_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .mkv\n\n📚 Batch Name: {b_name}\n\n**🔗 𝐕𝐢𝐝𝐞𝐨 𝐥𝐢𝐧𝐤 - ({url})**'
+                cczip = f'**💾 ZIP_ID: {str(count).zfill(3)}.\n\n**📝 Title:** {name1} .pdf\n\n📚 Batch Name: {b_name}'
                     
                 
                 if "drive" in url:
@@ -598,7 +592,7 @@ async def txt_handler(bot: Client, m: Message):
                         cmd = f'yt-dlp -o "{name1}.{ext}" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
-                        cc3 = f'**🖼️ IMG_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {my_name}.{ext}\n\n`📚 Batch Name : {b_name}`'
+                        cc3 = f'**🖼️ IMG_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {my_name}.{ext}\n\n📚 Batch Name: {b_name}'
                         await bot.send_document(chat_id=m.chat.id, document=f'{name}.{ext}', caption=cc3)
                         count += 1
                         os.remove(f'{name}.{ext}')
@@ -613,7 +607,7 @@ async def txt_handler(bot: Client, m: Message):
                         cmd = f'yt-dlp -x --audio-format {ext} -o "{name}.{ext}" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
-                        cc2 = f'**🎵 MP3_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {my_name}.{ext}\n\n`📚 Batch Name : {b_name}`'
+                        cc2 = f'**🎵 MP3_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {my_name}.{ext}\n\n📚 Batch Name: {b_name}'
                         await bot.send_document(chat_id=m.chat.id, document=f'{name}.{ext}', caption=cc2)
                         count += 1
                         os.remove(f'{name}.{ext}')
@@ -626,7 +620,7 @@ async def txt_handler(bot: Client, m: Message):
                     try:
                         html_filename = f"{name}.html"
                         helper.download_html_file(url, html_filename)
-                        cc5 = f'**🌐 HTML_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {my_name}.{ext}\n\n`📚 Batch Name : {b_name}`'
+                        cc5 = f'**🌐 HTML_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {my_name}.{ext}\n\n📚 Batch Name: {b_name}'
                         copy = await bot.send_document(chat_id=m.chat.id, document=html_filename, caption=cc5)
                         # Clean up files
                         os.remove(html_filename)              
@@ -639,7 +633,7 @@ async def txt_handler(bot: Client, m: Message):
 
                 elif any(ext in url for ext in [".jpg", ".jpeg", ".png"]):
                     try:
-                        ext = url.split('.')[-1]; cmd = f'yt-dlp -o "{name1}.{ext}" "{url}"'; download_cmd = f"{cmd} -R 25 --fragment-retries 25"; os.system(download_cmd); cc3 = f'**🖼️ IMG_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {my_name}.{ext}\n\n`📚 Batch Name : {b_name}`\n\n📥 Extracted By : {CR}\n\n**━━━━━✦{my_name}✦━━━━━**'; await bot.send_document(chat_id=m.chat.id, document=f'{name}.{ext}', caption=cc3); count += 1; os.remove(f'{name}.{ext}'); time.sleep(3)
+                        ext = url.split('.')[-1]; cmd = f'yt-dlp -o "{name1}.{ext}" "{url}"'; download_cmd = f"{cmd} -R 25 --fragment-retries 25"; os.system(download_cmd); cc3 = f'**🖼️ IMG_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} {my_name}.{ext}\n\n📚 Batch Name: {b_name}\n\n📥 Extracted By : {CR}\n\n**━━━━━✦{my_name}✦━━━━━**'; await bot.send_document(chat_id=m.chat.id, document=f'{name}.{ext}', caption=cc3); count += 1; os.remove(f'{name}.{ext}'); time.sleep(3)
                     except FloodWait as e: await m.reply_text(str(e)); time.sleep(e.x); continue
                         
                 elif ".pdf" in url:
@@ -853,8 +847,8 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**🎞️ VID_ID: {str(count).zfill(3)}.\n\nTitle: {name1} @Spidy_Universe {res}.mkv\n\n`📚 Batch Name : {b_name}`'
-                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\nTitle: {name1} @Spidy_Universe.pdf\n\n`📚 Batch Name : {b_name}`'
+                cc = f'**🎞️ VID_ID: {str(count).zfill(3)}.\n\nTitle: {name1} @Spidy_Universe {res}.mkv\n\n📚 Batch Name: {b_name}'
+                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\nTitle: {name1} @Spidy_Universe.pdf\n\n📚 Batch Name: {b_name}'
                     
                 
                 if "drive" in url:
@@ -1377,8 +1371,8 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**🎞️ VID_ID: {str(count).zfill(3)}.\n\n Title: {name1} @Spidy_Universe {res}.mkv\n\n`📚 Batch Name : {b_name}`\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝗦𝗣𝗜𝗗𝗬❤️✦━━━━━**'
-                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n Title: {name1} @Spidy_Universe.pdf\n\n`📚 Batch Name : {b_name}`\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝗦𝗣𝗜𝗗𝗬❤️✦━━━━━**'
+                cc = f'**🎞️ VID_ID: {str(count).zfill(3)}.\n\n Title: {name1} @Spidy_Universe {res}.mkv\n\n📚 Batch Name: {b_name}\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝗦𝗣𝗜𝗗𝗬❤️✦━━━━━**'
+                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n Title: {name1} @Spidy_Universe.pdf\n\n📚 Batch Name: {b_name}\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝗦𝗣𝗜𝗗𝗬❤️✦━━━━━**'
                     
                 
                 if "drive" in url:
@@ -1638,8 +1632,8 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**🎞️ VID_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} @Spidy_Universe {res}.mkv\n\n<pre><code>`📚 Batch Name : {b_name}`</code></pre>\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝗦𝗣𝗜𝗗𝗬❤️✦━━━━━**'
-                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} @Spidy_Universe.pdf\n\n<pre><code>`📚 Batch Name : {b_name}`</code></pre>\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝗦𝗣𝗜𝗗𝗬❤️✦━━━━━**'
+                cc = f'**🎞️ VID_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} @Spidy_Universe {res}.mkv\n\n<pre><code>📚 Batch Name: {b_name}</code></pre>\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝗦𝗣𝗜𝗗𝗬❤️✦━━━━━**'
+                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} @Spidy_Universe.pdf\n\n<pre><code>📚 Batch Name: {b_name}</code></pre>\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝗦𝗣𝗜𝗗𝗬❤️✦━━━━━**'
                     
                 
                 if "drive" in url:
