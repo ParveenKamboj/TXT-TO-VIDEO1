@@ -217,7 +217,7 @@ async def txt_handler(bot: Client, m: Message):
             f"📌 **Batch Name Pinned!** 📌\n"
             f"🎨 {fancy_batch_name}\n"
             f"✨ Stay organized with your pinned batches 🚀!"
-        parse_mode="HTML")
+        )
         await bot.pin_chat_message(m.chat.id, name_message.id)
         
         # Wait for 2 seconds before proceeding
