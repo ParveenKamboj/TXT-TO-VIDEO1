@@ -214,7 +214,7 @@ async def txt_handler(bot: Client, m: Message):
         # Send a message with the batch name and pin it
         name_message = await bot.send_message(
             m.chat.id,
-            f"📌 **Batch Name Pinned!** 📌\n"
+            f"📌 <b>Batch Name Pinned!</b> 📌\n"
             f"🎨 {fancy_batch_name}\n"
             f"✨ Stay organized with your pinned batches 🚀!"
         parse_mode="HTML")
